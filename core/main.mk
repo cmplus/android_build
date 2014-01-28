@@ -423,6 +423,17 @@ ifeq ($(filter-out $(INTERNAL_MODIFIER_TARGETS),$(MAKECMDGOALS)),)
 $(INTERNAL_MODIFIER_TARGETS): $(DEFAULT_GOAL)
 endif
 
+# These targets are going to delete stuff, don't bother including
+# the whole directory tree if that's all we're going to do
+
+ifeq ($(MAKECMDGOALS),dirty)
+dont_bother := true
+endif
+
+ifeq ($(MAKECMDGOALS),kernelclean)
+dont_bother := true
+endif
+
 # Bring in all modules that need to be built.
 ifeq ($(HOST_OS)-$(HOST_ARCH),darwin-ppc)
 SDK_ONLY := true
@@ -931,6 +942,26 @@ clean:
 
 .PHONY: clobber
 clobber: clean
+
+
+
+# Clears out zip and build.prop
+.PHONY: dirty
+dirty:
+	@rm -rf $(OUT_DIR)/target/product/*/system/build.prop
+	@rm -rf $(OUT_DIR)/target/product/*/*.zip
+	@rm -rf $(OUT_DIR)/target/product/*/*.md5sum
+	@echo -e ${CL_GRN}"build.prop and zip files erased"${CL_RST}	
+
+
+
+# Clears out all kernel stuff
+.PHONY: kernelclean
+kernelclean:
+	@rm -rf $(OUT_DIR)/target/product/*/kernel
+	@rm -rf $(OUT_DIR)/target/product/*/boot.img
+	@echo -e ${CL_GRN}"All kernel compnents erased"${CL_RST}
+
 
 # The rules for dataclean and installclean are defined in cleanbuild.mk.
 
