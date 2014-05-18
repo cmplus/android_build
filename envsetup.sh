@@ -137,7 +137,7 @@ function setpaths()
         # strip leading ':', if any
         export PATH=${PATH/:%/}
     fi
-
+. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
     # and in with the new
     CODE_REVIEWS=
     prebuiltdir=$(getprebuilt)
