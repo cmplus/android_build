@@ -1,4 +1,7 @@
 # Put some miscellaneous rules here
+liquid: otapackage
+	@echo -e ${CL_YLW}"Starting git log..."${CL_RST}
+	$(hide) OTAPACKAGE=$(INTERNAL_OTA_PACKAGE_TARGET) APKCERTS=$(APKCERTS_FILE) ./vendor/cm/tools/changelog
 
 # Build system colors
 
