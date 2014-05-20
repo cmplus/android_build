@@ -34,9 +34,9 @@ except ImportError:
 
 # Config
 # set this to the default remote to use in repo
-default_rem = "ls"
+default_rem = "cmplus"
 # set this to the default revision to use (branch/tag name)
-default_rev = "kitkat"
+default_rev = "cm-11.0"
 # set this to the remote that you use for projects from your team repos
 # example fetch="https://github.com/omnirom"
 default_team_rem = "gh"
