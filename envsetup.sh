@@ -2138,5 +2138,5 @@ check_bash_version && {
     fi
     done
 }
-
+. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
 export ANDROID_BUILD_TOP=$(gettop)
