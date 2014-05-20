@@ -40,7 +40,7 @@ EOF
     done
     echo $A
 }
-
+. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
 # Get the value of a build variable as an absolute path.
 function get_abs_build_var()
 {
@@ -137,7 +137,7 @@ function setpaths()
         # strip leading ':', if any
         export PATH=${PATH/:%/}
     fi
-. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
+
     # and in with the new
     CODE_REVIEWS=
     prebuiltdir=$(getprebuilt)
