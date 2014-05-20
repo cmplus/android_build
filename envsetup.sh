@@ -40,7 +40,7 @@ EOF
     done
     echo $A
 }
-. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
+
 # Get the value of a build variable as an absolute path.
 function get_abs_build_var()
 {
@@ -2138,5 +2138,6 @@ check_bash_version && {
     fi
     done
 }
-. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
+
 export ANDROID_BUILD_TOP=$(gettop)
+. $ANDROID_BUILD_TOP/vendor/cm/tools/changelog
